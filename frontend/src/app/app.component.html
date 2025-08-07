@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="header">
+    <h1 style="color: white;">POC Chat pour Your Car Your Way</h1>
+  </div>
+
+  <div style="margin-bottom: 10px;">
+    <button 
+      (click)="switchUser(user1)" 
+      [style.background]="currentUser === user1 ? '#2196f3' : '#ccc'"
+      [style.color]="currentUser === user1 ? 'white' : 'black'"
+      style="margin-right: 10px; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+      Utilisateur: {{ user1 }}
+    </button>
+    <button 
+      (click)="switchUser(user2)" 
+      [style.background]="currentUser === user2 ? '#2196f3' : '#ccc'"
+      [style.color]="currentUser === user2 ? 'white' : 'black'"
+      style="padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+      Utilisateur: {{ user2 }}
+    </button>
+  </div>
+
+  <div class="chat-area">
+    <div *ngFor="let msg of messages" 
+         class="message" 
+         [class.own]="msg.from === currentUser"
+         [class.other]="msg.from !== currentUser">
+      <div class="message-container">
+        <div class="message-author">{{ msg.from }}</div>
+        <div class="message-text">{{ msg.content }}</div>
+      </div>
+    </div>
+  </div>
+
+  <input 
+    [(ngModel)]="message" 
+    placeholder="Tapez votre message..."
+    class="message-input">
+  
+  <button 
+    (click)="sendMessage()" 
+    [disabled]="!message.trim() || !currentUser"
+    class="send-btn">
+    Envoyer
+  </button>
+</div> 

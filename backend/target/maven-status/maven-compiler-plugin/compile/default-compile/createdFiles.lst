@@ -1,0 +1,9 @@
+com\ycyw\chat\model\SupportMessage.class
+com\ycyw\chat\controller\ChatController.class
+com\ycyw\chat\model\Message.class
+com\ycyw\chat\config\CorsConfig.class
+com\ycyw\chat\repository\MessageRepository.class
+com\ycyw\chat\service\SupportMessageService.class
+com\ycyw\chat\ChatApplication.class
+com\ycyw\chat\service\MessageService.class
+com\ycyw\chat\repository\SupportMessageRepository.class
